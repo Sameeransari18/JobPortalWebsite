@@ -18,6 +18,7 @@ function Home() {
 
   const handleTextClick = (e, clickedText) => {
     setKeyword(clickedText);
+    navigate(`/jobs?searchQuery=${clickedText}`);
   };
 
   return (
@@ -25,9 +26,16 @@ function Home() {
       <div className="home">
         <div className="banner">
           <div className="container title-div">
-            <h2 className="title">Explore Open Career</h2>
-            <p className="title fs-1 green">Opportunities</p>
-            <p className="content">
+            <h2 className="title" style={{ paddingTop: "50px" }}>
+              Explore Open Career
+            </h2>
+            <p className="title fs-1 green" style={{ paddingTop: "50px" }}>
+              Opportunities
+            </p>
+            <p
+              className="content"
+              style={{ paddingTop: "50px", fontSize: "1.2rem" }}
+            >
               2400+ Peoples are daily search in this portal.
             </p>
             <form className="banner-form">

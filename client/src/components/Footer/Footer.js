@@ -20,7 +20,9 @@ const Footer = () => {
             <div className="footer-icons">
               <i className="fa-brands fa-facebook"></i>
               <i className="fa-brands fa-x-twitter"></i>
-              <i className="fa-brands fa-linkedin"></i>
+              <a href="https://www.linkedin.com/in/sameer-s-44a1b2203?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BswwSgTSpTraQKDzMapNxyg%3D%3D">
+                <i className="fa-brands fa-linkedin"></i>
+              </a>
               <i className="fa-brands fa-instagram"></i>
             </div>
           </div>
@@ -54,13 +56,13 @@ const Footer = () => {
           <div className="col-md-6 col-lg-4 col-12 ft-3">
             <h3>Contact Info</h3>
             <p>
-              <i className="fa-solid fa-phone-volume"></i>+91 9809894567
+              <i className="fa-solid fa-phone-volume"></i>+91 9876543210
             </p>
             <p>
               <i className="fa-solid fa-envelope"></i>jobportal@gmail.com
             </p>
             <p>
-              <i className="fa-solid fa-location-dot"></i>Chennai,India
+              <i className="fa-solid fa-location-dot"></i>Chennai, India
             </p>
           </div>
         </div>

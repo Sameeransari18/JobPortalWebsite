@@ -135,10 +135,7 @@ function Jobs() {
           </div>
         </div>
 
-        <div className="container mt-5">
-          <h1 className="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
-            Job Listing
-          </h1>
+        <div className="container shadow-md rounded mt-5">
           <div className="row">
             <div className="col-sm-3">
               <div className="sidebar">
@@ -246,7 +243,7 @@ function Jobs() {
                 ) : (
                   <p>No jobs available</p>
                 )}
-                <a className="btn btn-primary py-3 px-5 mb-5" href="">
+                <a className="btn btn-outline-primary py-2 px-3 mb-3" href="">
                   Browse More Jobs
                 </a>
               </div>
