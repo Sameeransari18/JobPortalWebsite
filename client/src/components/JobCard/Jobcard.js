@@ -9,7 +9,7 @@ const Jobcard = ({ job }) => {
 
   return (
     <Link to={`/jobdetails/${_id}`} className="job-card-link">
-      <div className="job-item p-4 mb-4 shadow-md rounded">
+      <div className="job-item p-4 mb-4 shadow rounded">
         <div className="row g-4">
           <div className="col-sm-12 col-md-8 d-flex align-items-center">
             <img

@@ -1,8 +1,46 @@
 import "./Footer.css";
 import { Link } from "react-router-dom";
-import React from "react";
+import { React, useState, useEffect } from "react";
 
 const Footer = () => {
+  const [icon, setIcon] = useState(false);
+  const [scrollTopVisible, setScrollTopVisible] = useState(false); // Define state for scroll visibility
+
+  useEffect(() => {
+    // Add scroll event listener to show/hide the scroll-to-top button
+    const handleScroll = () => {
+      const scrollTop =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      if (scrollTop > 200) {
+        setScrollTopVisible(true);
+      } else {
+        setScrollTopVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const closeSideDrawer = () => {
+    setIcon(false);
+  };
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  };
+
+  const handleLinkClick = () => {
+    if (window.pageYOffset > 0) {
+      // Check if the page is not already at the top
+      scrollToTop();
+    }
+    closeSideDrawer(); // Close side drawer if open
+  };
+
   return (
     <div className="Footer">
       <div className="container">
@@ -31,22 +69,22 @@ const Footer = () => {
             <h3>Quick Links</h3>
             <ul>
               <li className="nav-item">
-                <Link to="/home" className="links">
+                <Link to="/home" className="links" onClick={handleLinkClick}>
                   Home
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/jobs" className="links">
+                <Link to="/jobs" className="links" onClick={handleLinkClick}>
                   Jobs
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/about" className="links">
+                <Link to="/about" className="links" onClick={handleLinkClick}>
                   About Us
                 </Link>
               </li>
               <li className="nav-item">
-                <Link to="/contact" className="links">
+                <Link to="/contact" className="links" onClick={handleLinkClick}>
                   Contact
                 </Link>
               </li>

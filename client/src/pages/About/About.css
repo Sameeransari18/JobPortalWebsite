@@ -1,13 +1,20 @@
-.about-banner{
-    background: linear-gradient(-225deg, #FFFEFF 0%, #D7FFFE 100%);
+.about-banner {
+  background: linear-gradient(-225deg, #fffeff 0%, #d7fffe 100%);
 }
-.about-img{
-    height:300px;
-    width: auto;
+
+.about-img {
+  height: 300px;
+  width: auto;
 }
-.about{
-    color: lightseagreen;
+
+.about-title {
+  color: #333;
 }
-.ab{
-    color: black;
+
+.about-subtitle {
+  color: #555;
+}
+
+.ab {
+  color: #000;
 }

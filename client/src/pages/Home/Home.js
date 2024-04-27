@@ -251,7 +251,7 @@ function Home() {
                   <i className="fa fa-check text-primary me-3"></i>Career
                   Resources
                 </p>
-                <a className="btn btnn py-3 px-5 mt-3" onClick={handleClick}>
+                <a className="btn btnn py-2 px-3 mt-3" onClick={handleClick}>
                   Read More
                 </a>
               </div>

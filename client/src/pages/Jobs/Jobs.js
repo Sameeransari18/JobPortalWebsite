@@ -8,21 +8,17 @@ import { jwtDecode } from "jwt-decode";
 function Jobs() {
   const [jobs, setJobs] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
-
-  // useEffect(() => {
-  //     fetchData();
-  // }, [searchQuery]); // Run effect whenever searchQuery changes
-
   const location = useLocation();
+  const navigate = useNavigate();
+
   useEffect(() => {
     const params = new URLSearchParams(location.search);
     const query = params.get("searchQuery");
     setSearchQuery(query || "");
-    fetchData(searchQuery);
-  }, [searchQuery]); // Run effect whenever location.search changes
+    fetchData(query);
+  }, [location.search]); // Run effect whenever location.search changes
 
-  const navigate = useNavigate();
-  const fetchData = async () => {
+  const fetchData = async (query) => {
     try {
       const token = localStorage.getItem("token");
       if (!token) {
@@ -47,7 +43,7 @@ function Jobs() {
       }
       const response = await axios.get(
         `http://localhost:8000/app/v1/job/view-all-jobs${
-          searchQuery ? `?search=${searchQuery}` : "" // Append query string only if query exists
+          query ? `?search=${query}` : "" // Append query string only if query exists
         }`,
         {
           headers: {
@@ -68,6 +64,10 @@ function Jobs() {
     fetchData(searchQuery);
   };
 
+  const handleInputChange = (e) => {
+    setSearchQuery(e.target.value); // Update searchQuery state as input value changes
+  };
+
   return (
     <>
       <div className="jobs">
@@ -82,11 +82,11 @@ function Jobs() {
                       <input
                         type="text"
                         name="title"
-                        placeholder="Job title, skills, keywords etc..."
+                        placeholder="Job Title / Skills / Keywords"
                         className="form-control selectJobTitle"
                         autoComplete="off"
                         value={searchQuery}
-                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onChange={handleInputChange}
                       />
                       <button type="submit" className="search-button">
                         <i className="fa fa-search"></i>
@@ -243,7 +243,10 @@ function Jobs() {
                 ) : (
                   <p>No jobs available</p>
                 )}
-                <a className="btn btn-outline-primary py-2 px-3 mb-3" href="">
+                <a
+                  className="btn btn-outline-primary py-2 px-3 mb-3"
+                  href="/jobs"
+                >
                   Browse More Jobs
                 </a>
               </div>
